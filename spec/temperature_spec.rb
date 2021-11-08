@@ -63,21 +63,21 @@ RSpec.describe Temperature do
   end
 
   describe '#input_from!' do
-    it 'Correct from (F)' do 
+    it 'Correct from (F)' do
       allow(Terminal).to receive(:gets).and_return("F\n")
       expect(temp.input_from!).to eq 'F'
     end
   end
 
   describe '#input_to!' do
-    it 'Correct to (F)' do 
+    it 'Correct to (F)' do
       allow(Terminal).to receive(:gets).and_return("C\n")
       expect(temp.input_to!).to eq 'C'
     end
   end
 
   describe '#input_value!' do
-    it 'Correct value (150)' do 
+    it 'Correct value (150)' do
       allow(Terminal).to receive(:gets).and_return("150\n")
       expect(temp.input_value!).to eq 150
     end

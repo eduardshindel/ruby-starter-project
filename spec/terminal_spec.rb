@@ -11,7 +11,7 @@ RSpec.describe Terminal do
   end
 
   describe '#read' do
-    it 'print "hello"' do 
+    it 'print "hello"' do
       allow(Terminal).to receive(:gets).and_return("Hello\n")
       expect(Terminal.read).to eq 'Hello'
     end
@@ -41,7 +41,7 @@ RSpec.describe Terminal do
       expect(Terminal.continiue?).to eq true
     end
 
-    it 'Enter not "Y"' do 
+    it 'Enter not "Y"' do
       allow(Terminal).to receive(:gets).and_return("N\n")
       expect(Terminal.continiue?).to eq false
     end
