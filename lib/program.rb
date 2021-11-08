@@ -7,12 +7,12 @@ class Program
     Terminal.say_hello
     loop do
       temp = Temperature.new
+      temp.input_from!
+      temp.input_to!
+      temp.input_value!
       temp.convert!
       Terminal.print_answer temp.from, temp.to, temp.t1, temp.t2
       break unless Terminal.continiue?
-
-      Terminal.clear
     end
-    Terminal.clear
   end
 end

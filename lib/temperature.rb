@@ -1,21 +1,13 @@
 class Temperature
   attr_accessor :from, :to, :t1, :t2
 
-  def initialize
-    @from = input_from!
-    @to = input_to!
-    @t1 = input_value!
-  end
-
   def input_from!
     loop do
       Terminal.write 'Please enter from which scale do you want to convert (F, K, C)?'
       @input = Terminal.read
       break if correct_scale? @input
-
-      Terminal.clear
     end
-    @input
+    @from = @input
   end
 
   def input_to!
@@ -23,10 +15,8 @@ class Temperature
       Terminal.write 'Please enter to which scale do you want to convert (F, K, C)?'
       @input = Terminal.read
       break if correct_scale?(@input) && @input != @from
-
-      Terminal.clear
     end
-    @input
+    @to = @input
   end
 
   def input_value!
@@ -34,10 +24,8 @@ class Temperature
       Terminal.write 'Enter the temperature'
       @input = Terminal.read
       break if number? @input
-
-      Terminal.clear
     end
-    @input.to_f
+    @t1 = @input.to_f
   end
 
   def correct_scale?(suspect)
@@ -46,6 +34,7 @@ class Temperature
 
   def number?(suspect)
     Float suspect
+    true
   rescue StandardError
     false
   end
